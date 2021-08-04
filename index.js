@@ -21,6 +21,8 @@ app.use(morgan("dev"));
 const port = 3000;
 
 //Routes importation
+const charactersRoutes = require("./routes/characters");
+app.use(charactersRoutes);
 
 // API INTERROGATION
 
@@ -34,24 +36,6 @@ const port = 3000;
 app.get("/", async (req, res) => {
   try {
     res.json("Welcome on Almost Marvel API");
-  } catch (error) {
-    res.status(400).json({ message: "An error occured" });
-  }
-});
-
-app.get("/characters", async (req, res) => {
-  try {
-    axios
-      .get(
-        `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    res.json(response.data);
   } catch (error) {
     res.status(400).json({ message: "An error occured" });
   }
