@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-const axios = require("axios");
-
 const express = require("express");
 const app = express();
 
@@ -46,7 +44,7 @@ app.all("*", (req, res) => {
   res.status(400).json({ message: "Page not found" });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server started");
 });
 
