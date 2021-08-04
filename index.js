@@ -24,11 +24,11 @@ const port = 3000;
 // API INTERROGATION
 
 // DB connection
-mongoose.connect("mongodb://localhost:27017/almost-vinted", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+// mongoose.connect("mongodb://localhost:27017/almost-vinted", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+// });
 
 app.get("/", async (req, res) => {
   try {
@@ -42,6 +42,6 @@ app.all("*", (req, res) => {
   res.status(400).json({ message: "Page not found" });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server started");
 });
