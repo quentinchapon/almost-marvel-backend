@@ -24,9 +24,10 @@ const port = 3000;
 const charactersRoutes = require("./routes/characters");
 app.use(charactersRoutes);
 
-// API INTERROGATION
+const comicsRoutes = require("./routes/comics");
+app.use(comicsRoutes);
 
-// DB connection
+// Mongoose connection
 // mongoose.connect("mongodb://localhost:27017/almost-vinted", {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
