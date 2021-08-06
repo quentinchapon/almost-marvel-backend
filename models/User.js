@@ -6,11 +6,11 @@ const User = mongoose.model("User", {
     unique: true,
     type: String,
   },
-
   username: {
     required: true,
     type: String,
   },
+
   password: String,
   token: String,
   hash: String,

@@ -25,12 +25,15 @@ app.use(charactersRoutes);
 const comicsRoutes = require("./routes/comics");
 app.use(comicsRoutes);
 
+const usersRoutes = require("./routes/user");
+app.use(usersRoutes);
+
 // Mongoose connection
-// mongoose.connect("mongodb://localhost:27017/almost-vinted", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useCreateIndex: true,
-// });
+mongoose.connect("mongodb://localhost:27017/almost-marvel", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 app.get("/", async (req, res) => {
   try {
