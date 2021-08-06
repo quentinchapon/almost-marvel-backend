@@ -15,10 +15,10 @@ router.get("/comics", async (req, res) => {
     // Recherche sur le titre
     if (req.query.title) {
       // Add search key in search object
-      console.log(req.query.search);
+      console.log(req.query.title);
       filters.title = new RegExp(req.query.title, "i");
       {
-        search: new RegExp(req.query.title, "i");
+        title: new RegExp(req.query.title, "i");
       }
     }
     /////////////////////////
