@@ -2,10 +2,22 @@ const express = require("express");
 const axios = require("axios");
 const router = express();
 
-// Comics route
+// Display comics list with filters
 
 router.get("/comics", async (req, res) => {
   try {
+    const filters = {};
+
+    // Recherche sur le titre
+    if (req.query.search) {
+      // Add search key in search object
+      console.log(req.query.search);
+      filters.search = new RegExp(req.query.search, "i");
+      {
+        search: new RegExp(req.query.search, "i");
+      }
+    }
+
     const response = await axios.get(
       `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}`
     );
