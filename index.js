@@ -25,8 +25,8 @@ app.use(charactersRoutes);
 const comicsRoutes = require("./routes/comics");
 app.use(comicsRoutes);
 
-const usersRoutes = require("./routes/user");
-app.use(usersRoutes);
+const userRoutes = require("./routes/user");
+app.use(userRoutes);
 
 // Mongoose connection
 mongoose.connect("mongodb://localhost:27017/almost-marvel", {
