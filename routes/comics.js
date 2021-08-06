@@ -9,16 +9,16 @@ router.get("/comics", async (req, res) => {
     const filters = {};
 
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&search=${req.query.search}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&title=${req.query.title}`
     );
 
     // Recherche sur le titre
-    if (req.query.search) {
+    if (req.query.title) {
       // Add search key in search object
       console.log(req.query.search);
-      filters.search = new RegExp(req.query.search, "i");
+      filters.title = new RegExp(req.query.title, "i");
       {
-        search: new RegExp(req.query.search, "i");
+        search: new RegExp(req.query.title, "i");
       }
     }
     /////////////////////////
