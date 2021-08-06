@@ -13,9 +13,9 @@ router.get("/comics", async (req, res) => {
       // Add search key in search object
       console.log(req.query.title);
       filters.title = new RegExp(req.query.title, "i");
-      {
-        title: new RegExp(req.query.title, "i");
-      }
+      // {
+      //   title: new RegExp(req.query.title, "i");
+      // }
     }
     /////////////////////////
 
