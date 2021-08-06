@@ -10,7 +10,6 @@ const User = mongoose.model("User", {
     required: true,
     type: String,
   },
-
   password: String,
   token: String,
   hash: String,
