@@ -29,7 +29,7 @@ const userRoutes = require("./routes/user");
 app.use(userRoutes);
 
 // Mongoose connection
-mongoose.connect("mongodb://localhost:27017/almost-marvel", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
