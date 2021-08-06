@@ -8,10 +8,6 @@ router.get("/comics", async (req, res) => {
   try {
     const filters = {};
 
-    const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&title=${req.query.title}`
-    );
-
     // Recherche sur le titre
     if (req.query.title) {
       // Add search key in search object
@@ -22,6 +18,10 @@ router.get("/comics", async (req, res) => {
       }
     }
     /////////////////////////
+
+    const response = await axios.get(
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}&title=${req.query.title}`
+    );
 
     res.json(response.data);
   } catch (error) {
