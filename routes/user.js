@@ -43,7 +43,7 @@ router.post("/signup", async (req, res) => {
 });
 
 // Sign in route
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
   try {
     const checkUser = await User.findOne({ email: req.fields.email });
     const checkHash = SHA256(req.fields.password + checkUser.salt).toString(
