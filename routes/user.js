@@ -68,7 +68,7 @@ router.post("/signin", async (req, res) => {
 router.post("/collection", async (req, res) => {
   try {
     const newCollection = new Collection({
-      token: req.fields.token,
+      user_id: req.fields.user_id,
       collection_img: req.fields.collection_img,
       collection_name: req.fields.collection_name,
     });
