@@ -2,6 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const router = express();
 
+// Models import
+const Collection = require("../models/Collection");
+const User = require("../models/User");
+
 // Characters route
 
 router.get("/characters", async (req, res) => {

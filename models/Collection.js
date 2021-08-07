@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 
-const Fav = mongoose.model("Fav", {
+const Collection = mongoose.model("Collection", {
   token: {
     type: String,
     required: true,
   },
-  fav_img: {
+  collection_img: {
     type: String,
   },
-  fav_name: {
+  collection_name: {
     type: String,
   },
 });
 
-module.exports = Fav;
+module.exports = Collection;

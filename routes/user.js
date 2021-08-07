@@ -5,7 +5,7 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 
 // Models import
-const Fav = require("../models/Fav");
+const Collection = require("../models/Collection");
 const User = require("../models/User");
 
 // Sign up route
@@ -43,7 +43,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// Sign in route
+// Sign in
 router.post("/signin", async (req, res) => {
   try {
     const checkUser = await User.findOne({ email: req.fields.email });
@@ -64,16 +64,16 @@ router.post("/signin", async (req, res) => {
   }
 });
 
-//Add to fav route / Create new fav
-router.post("/fav", async (req, res) => {
+//Add to collection
+router.post("/collection", async (req, res) => {
   try {
-    const newFav = new Fav({
+    const newCollection = new Collection({
       token: req.fields.token,
-      fav_img: req.fields.fav_img,
-      fav_name: req.fields.fav_name,
+      collection_img: req.fields.collection_img,
+      collection_name: req.fields.collection_name,
     });
-    await newFav.save();
-    res.json(newFav);
+    await newCollection.save();
+    res.json(newCollection);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
