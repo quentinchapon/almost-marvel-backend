@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Collection = mongoose.model("Collection", {
-  token: {
+  user_id: {
     type: String,
     required: true,
   },
