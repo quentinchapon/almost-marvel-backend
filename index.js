@@ -12,11 +12,7 @@ app.use(cors());
 const mongoose = require("mongoose");
 
 const morgan = require("morgan");
-const { response } = require("express");
 app.use(morgan("dev"));
-
-//Port var
-const port = 3000;
 
 //Routes importation
 const charactersRoutes = require("./routes/characters");
@@ -37,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 app.get("/", async (req, res) => {
   try {
-    res.json("Welcome on Almost Marvel API");
+    res.json("Welcome on Almost Marvel");
   } catch (error) {
     res.status(400).json({ message: "An error occured" });
   }
@@ -50,5 +46,3 @@ app.all("*", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log("Server started");
 });
-
-// process.env.PORT
