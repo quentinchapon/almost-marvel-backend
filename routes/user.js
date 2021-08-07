@@ -42,4 +42,25 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+// Sign in route
+router.post("/login", async (req, res) => {
+  try {
+    const checkUser = await User.findOne({ email: req.fields.email });
+    const checkHash = SHA256(req.fields.password + checkUser.salt).toString(
+      encBase64
+    );
+    if (checkUser.hash === checkHash) {
+      res.status(200).json({
+        _id: checkUser._id,
+        token: checkUser.token,
+        username: checkUser.account.username,
+      });
+    } else {
+      res.status(200).json({ message: "Wrong password" });
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;
