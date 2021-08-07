@@ -4,7 +4,8 @@ const uid2 = require("uid2");
 const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 
-// Models importation
+// Models import
+const Fav = require("../models/Fav");
 const User = require("../models/User");
 
 // Sign up route
@@ -60,6 +61,21 @@ router.post("/signin", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
+  }
+});
+
+//Add to fav route / Create new fav
+router.post("/fav", async (req, res) => {
+  try {
+    const newFav = new Fav({
+      token: req.fields.token,
+      fav_img: req.fields.fav_image,
+      fav_name: req.fields.fav_name,
+    });
+    await newFav.save();
+    res.json(newFav);
+  } catch (error) {
+    console.log({ message: error.message });
   }
 });
 

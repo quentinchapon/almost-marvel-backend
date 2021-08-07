@@ -2,6 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const router = express();
 
+// Models import
+const Fav = require("../models/Fav");
+const User = require("../models/User");
+
 // Display comics list with filters
 
 router.get("/comics", async (req, res) => {
