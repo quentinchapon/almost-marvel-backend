@@ -82,7 +82,7 @@ router.post("/collection", async (req, res) => {
 //Get user collection
 router.get("/getcollection", async (req, res) => {
   try {
-    const collection = await Collection.find({ token: req.query.user_id });
+    const collection = await Collection.find({ user_id: req.query.user_id });
     res.json(collection);
   } catch (error) {
     console.log(error.message);
