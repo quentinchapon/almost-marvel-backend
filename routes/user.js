@@ -69,7 +69,7 @@ router.post("/fav", async (req, res) => {
   try {
     const newFav = new Fav({
       token: req.fields.token,
-      fav_img: req.fields.fav_image,
+      fav_img: req.fields.fav_img,
       fav_name: req.fields.fav_name,
     });
     await newFav.save();
