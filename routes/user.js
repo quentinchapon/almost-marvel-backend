@@ -79,4 +79,6 @@ router.post("/collection", async (req, res) => {
   }
 });
 
+//Get user collection
+
 module.exports = router;

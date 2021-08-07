@@ -3,7 +3,7 @@ const axios = require("axios");
 const router = express();
 
 // Models import
-const Fav = require("../models/Fav");
+const Collection = require("../models/Collection");
 const User = require("../models/User");
 
 // Display comics list with filters
