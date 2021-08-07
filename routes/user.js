@@ -75,7 +75,7 @@ router.post("/fav", async (req, res) => {
     await newFav.save();
     res.json(newFav);
   } catch (error) {
-    console.log({ message: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
