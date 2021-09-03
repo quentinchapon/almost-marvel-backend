@@ -70,18 +70,21 @@ router.post("/collection", async (req, res) => {
     collection_name: req.fields.collection_name,
   });
   console.log("Le TRUC =====>", checkCollectionName);
+  if (checkCollectionName === null) {
+    try {
+      const newCollection = new Collection({
+        user_id: req.fields.user_id,
+        collection_img: req.fields.collection_img,
+        collection_name: req.fields.collection_name,
+      });
 
-  try {
-    const newCollection = new Collection({
-      user_id: req.fields.user_id,
-      collection_img: req.fields.collection_img,
-      collection_name: req.fields.collection_name,
-    });
-
-    await newCollection.save();
-    res.json(newCollection);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+      await newCollection.save();
+      res.json(newCollection);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  } else {
+    res.json({ message: "This item is already in your collecton" });
   }
 });
 
