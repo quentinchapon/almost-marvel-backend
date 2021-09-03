@@ -7,7 +7,6 @@ const Collection = require("../models/Collection");
 const User = require("../models/User");
 
 // Display comics list with filters
-
 router.get("/comics", async (req, res) => {
   try {
     const filters = {};

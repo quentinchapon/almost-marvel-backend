@@ -66,12 +66,18 @@ router.post("/signin", async (req, res) => {
 
 //Add to collection
 router.post("/collection", async (req, res) => {
+  const checkCollectionName = await Collection.findOne({
+    collection_name: req.fields.collection_name,
+  });
+  console.log("Le TRUC =====>", checkCollectionName);
+
   try {
     const newCollection = new Collection({
       user_id: req.fields.user_id,
       collection_img: req.fields.collection_img,
       collection_name: req.fields.collection_name,
     });
+
     await newCollection.save();
     res.json(newCollection);
   } catch (error) {
