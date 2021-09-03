@@ -69,7 +69,6 @@ router.post("/collection", async (req, res) => {
   const checkCollectionName = await Collection.findOne({
     collection_name: req.fields.collection_name,
   });
-  console.log("Le TRUC =====>", checkCollectionName);
   if (checkCollectionName === null) {
     try {
       const newCollection = new Collection({
@@ -93,6 +92,18 @@ router.get("/getcollection", async (req, res) => {
   try {
     const collection = await Collection.find({ user_id: req.query.user_id });
     res.json(collection);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+//Remove from collection
+router.delete("/collection/delete", async (req, res) => {
+  try {
+    const deleteCollection = await Collection.remove({
+      collection_name: req.query.collection_name,
+    });
+    res.json({ message: "item has been deleted" });
   } catch (error) {
     console.log(error.message);
   }
