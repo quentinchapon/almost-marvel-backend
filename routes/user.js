@@ -103,7 +103,7 @@ router.delete("/collection/delete", async (req, res) => {
     const deleteCollection = await Collection.remove({
       collection_name: req.query.collection_name,
     });
-    res.json({ message: "item has been deleted" });
+    res.json({ message: "Item has been deleted" });
   } catch (error) {
     console.log(error.message);
   }
